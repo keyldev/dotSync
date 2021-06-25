@@ -1,0 +1,143 @@
+﻿<Page x:Class="sharpSync.UI.MainMenu.MenuMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:sharpSync.UI.MainMenu"
+      mc:Ignorable="d"
+      Title="Main" Height="610" Width="962.649" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FF171717"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#003C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#99444444"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="MainMenuButtons" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Frame x:Name="fMainContent" HorizontalAlignment="Left" Height="610" VerticalAlignment="Top" Width="784" Margin="179,0,0,0"/>
+        <Grid HorizontalAlignment="Left" Height="610" VerticalAlignment="Top" Width="179">
+            <Border BorderThickness="0" HorizontalAlignment="Left" Height="162" VerticalAlignment="Top" Width="179" Background="#FF0083CD"
+                    CornerRadius="5,0,0,0"/>
+            <Rectangle Margin="39,24,38,0"
+                       RadiusX="20" RadiusY="20" Stroke="White" Height="95" VerticalAlignment="Top">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/sharpSync;component/Assets/default_avatar.jpg"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label x:Name="userNameLabel" Content="Vasiliy Zalatov" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,119,0,0" Width="170" Foreground="White"
+                   HorizontalContentAlignment="Center"/>
+            <Border BorderThickness="0" HorizontalAlignment="Left" Height="448" Margin="0,162,0,0" VerticalAlignment="Top" Width="179" Background="#FF1F1F1F"
+                    CornerRadius="0,0,0,5">
+                <Grid Margin="0,0,-1,0">
+                    <Button x:Name="bAccount" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" Width="177" Height="45" 
+                            Foreground="White" BorderBrush="{x:Null}" Click="bAccount_Click" Background="{x:Null}"
+                            Style="{DynamicResource MainMenuButtons}">
+                        <Grid Height="41" Width="175">
+                            <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Center" Width="21" 
+                                   Source="/sharpSync;component/Assets/icons/interface/user_account.png" Margin="15,12,0,11"/>
+                            <Label Content="Аккаунт" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="63" Foreground="White" FontSize="14"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="bSettings" HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" Width="177" Height="45" Background="{x:Null}" 
+                            Foreground="White" BorderBrush="{x:Null}" Click="bSettings_Click"
+                            Style="{DynamicResource MainMenuButtons}">
+                        <Grid Height="41" Width="175">
+                            <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Center" Width="21" 
+                                   Source="/sharpSync;component/Assets/icons/interface/settings.png" Margin="15,12,0,11"/>
+                            <Label Content="Настройки" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="79" Foreground="White" FontSize="14"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="bHome" HorizontalAlignment="Left" 
+                            Margin="1,5,0,0" VerticalAlignment="Top" Width="177" Height="45"
+                            Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" Click="bHome_Click" 
+                            Style="{DynamicResource MainMenuButtons}">
+                        <Grid Height="41" Width="175">
+                            <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Center" Width="21" 
+                                   Source="/sharpSync;component/Assets/icons/interface/home.png" Margin="15,12,0,11"/>
+                            <Label Content="Домашная" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="79" Foreground="White" FontSize="14"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="bFTP" HorizontalAlignment="Left" 
+                        Margin="0,50,0,0" VerticalAlignment="Top" Width="177" Height="45"
+                        Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" Click="bFTP_Click"
+                            Style="{DynamicResource MainMenuButtons}">
+                        <Grid Height="41" Width="175">
+                            <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Center" Width="21" 
+                                   Source="/sharpSync;component/Assets/icons/interface/ftp.png" Margin="15,12,0,11"/>
+                            <Label Content="FTP" HorizontalAlignment="Center" Margin="62,6,79,6" VerticalAlignment="Center" Width="34" Foreground="White" FontSize="14"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="bLogout" HorizontalAlignment="Left" Margin="0,393,0,0" VerticalAlignment="Top" Width="177" Height="45" Background="{x:Null}" 
+                        Foreground="White" BorderBrush="{x:Null}" Click="bLogout_Click"
+                        Style="{DynamicResource MainMenuButtons}">
+                        <Grid Height="41" Width="175">
+                            <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Center" Width="21" 
+                                   Source="/sharpSync;component/Assets/icons/interface/sign_out.png" Margin="15,12,0,11"/>
+                            <Label Content="Выход" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="51" Foreground="White" FontSize="14"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="bBugReport" HorizontalAlignment="Left" Margin="1,343,0,0" VerticalAlignment="Top" Width="177" Height="45" Background="{x:Null}" 
+                        Foreground="White" BorderBrush="{x:Null}" Click="bBugReport_Click"
+                        Style="{DynamicResource MainMenuButtons}">
+                        <Grid Height="41" Width="175">
+                            <Image HorizontalAlignment="Left" Height="18" VerticalAlignment="Center" Width="21" 
+                                Source="/sharpSync;component/Assets/icons/interface/bug.png" Margin="15,12,0,11"/>
+                            <Label Content="BugReport" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="76" Foreground="White" FontSize="14"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

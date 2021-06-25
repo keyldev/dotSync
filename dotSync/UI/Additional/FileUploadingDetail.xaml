@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="sharpSync.UI.Additional.FileUploadingDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:sharpSync.UI.Additional"
+             mc:Ignorable="d" 
+             Height="75.833" Width="310" >
+    <Border BorderThickness="1" CornerRadius="7" Background="White">
+        <Grid Margin="0,0,-1,-1">
+
+            <TextBlock x:Name="fileName" HorizontalAlignment="Left" Margin="73,18,0,0" TextWrapping="Wrap" Text="{Binding FileName, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="218" Height="30" Foreground="Black"/>
+            <TextBlock x:Name="fileSize" HorizontalAlignment="Left" Margin="198,48,0,0" TextWrapping="Wrap" Text="{Binding FileSize, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="93" Height="24" Foreground="Black"/>
+            <Image x:Name="imageFile" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="{Binding FileImage, UpdateSourceTrigger=PropertyChanged}" Margin="13,10,0,0"/>
+
+        </Grid>
+    </Border>
+</UserControl>

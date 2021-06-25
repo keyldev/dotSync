@@ -1,0 +1,17 @@
+﻿<Page x:Class="sharpSync.UI.Additional.Settings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:sharpSync.UI.Additional"
+      mc:Ignorable="d" 
+      d:DesignHeight="559" d:DesignWidth="784"
+      Title="Settings">
+
+    <Grid>
+        <TextBox x:Name="tbHostIP" HorizontalAlignment="Left" Height="36" Margin="87,84,0,0" TextWrapping="Wrap" Text="192.168.0.104" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="tbHostPort" HorizontalAlignment="Left" Height="36" Margin="87,125,0,0" TextWrapping="Wrap" Text="3721" VerticalAlignment="Top" Width="168"/>
+        <Button x:Name="bApply" Content="Apply" HorizontalAlignment="Left" Margin="132,166,0,0" VerticalAlignment="Top" Width="76" Click="bApply_Click"/>
+
+    </Grid>
+</Page>

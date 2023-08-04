@@ -1,7 +1,9 @@
 # dotSync
 FTP Client with Flat UI
 
-![](https://github.com/keyldev/dotSync/blob/main/Screenshots/img_0.jpg)
+<p align="center">
+<image src="https://github.com/keyldev/dotSync/blob/main/Screenshots/img_0.jpg" width="720"/>
+</p>
 
 
 
